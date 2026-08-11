@@ -1,0 +1,43 @@
+name: Update fan count
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/update-fans.js
+      - .github/workflows/update-fans.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-fans
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch follower counts
+        run: node scripts/update-fans.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/fans.json
+          if git diff --cached --quiet; then
+            echo "No change, nothing to commit"
+          else
+            git commit -m "chore: update fan count [skip ci]"
+            git push
+          fi

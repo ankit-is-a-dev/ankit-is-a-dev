@@ -29,7 +29,7 @@ This profile is where my two worlds come together: **the stage** (music and cont
 |---|---|
 | **[@ankiisinghh](https://www.instagram.com/ankiisinghh)** | Comedy reels and daily content. Main account for brand collaborations and promotions. |
 | **[@akki.sings__](https://www.instagram.com/akki.sings__)** | Song covers and original recordings. |
-| **[@unfav..akki__](https://www.instagram.com/unfav..akki__)** | Personal account — lyrics reels and behind-the-scenes. |
+| **[@_unfav._.akki__](https://www.instagram.com/_unfav._.akki__)** | Personal account — lyrics reels and behind-the-scenes. |
 
 All three accounts are public. Open for paid collaborations and promotions.
 
@@ -51,7 +51,7 @@ All three accounts are public. Open for paid collaborations and promotions.
 - **Collaborations & promotions** — [ankitcontact.11@gmail.com](mailto:ankitcontact.11@gmail.com)
 - **Comedy & content** — [@ankiisinghh](https://www.instagram.com/ankiisinghh)
 - **Music & performances** — [@akki.sings__](https://www.instagram.com/akki.sings__)
-- **Personal** — [@unfav..akki__](https://www.instagram.com/unfav..akki__)
+- **Personal** — [@_unfav._.akki__](https://www.instagram.com/_unfav._.akki__)
 - **GitHub** — [ankit-is-a-dev](https://github.com/ankit-is-a-dev)
 
 ---
