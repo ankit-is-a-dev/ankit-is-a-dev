@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ankit Singh — Singer &amp; Content Creator</title>
+<meta name="description" content="Ankit Singh is a singer and content creator based in Delhi. Song covers, comedy reels, and brand collaborations." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E11D48'/%3E%3Cpath d='M14 8.5v9.6a3.5 3.5 0 1 0 1.6 2.9V11l7-1.4V14l-4.4.9' fill='white'/%3E%3C/svg%3E" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',system-ui,-apple-system,sans-serif; }
+  ::selection{ background:#E11D48; color:#fff; }
+  .container-x{ max-width:72rem; margin:0 auto; padding-left:1.25rem; padding-right:1.25rem; }
+  @media(min-width:640px){ .container-x{ padding-left:2rem; padding-right:2rem; } }
+
+  .live-dot{ display:inline-block; width:.55rem; height:.55rem; border-radius:9999px; background:#d4d4d8; }
+  .live-dot.on{ background:#16a34a; }
+  .live-dot.on::after{ content:""; display:block; width:.55rem; height:.55rem; border-radius:9999px; background:rgba(22,163,74,.35); animation:ping 1.6s cubic-bezier(0,0,.2,1) infinite; }
+  .live-dot.stale{ background:#d97706; }
+  .live-dot.off{ background:#a1a1aa; }
+  @keyframes ping{ 75%,100%{ transform:scale(2.4); opacity:0; } }
+
+  a,button{ -webkit-tap-highlight-color:transparent; }
+  :focus-visible{ outline:2px solid #E11D48; outline-offset:2px; border-radius:4px; }
+  input,textarea,select{ transition:border-color .15s ease, box-shadow .15s ease; }
+  input:focus,textarea:focus,select:focus{ outline:none; border-color:#E11D48; box-shadow:0 0 0 3px rgba(225,29,72,.12); }
+  @media(prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+</style>
+</head>
+<body class="bg-white text-zinc-900 antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-white focus:border focus:border-zinc-200 focus:px-4 focus:py-2 focus:text-sm">Skip to content</a>
+
+<header class="sticky top-0 z-40 bg-white border-b border-zinc-200">
+  <nav class="container-x flex items-center justify-between h-16" aria-label="Main">
+    <a href="#main" class="flex items-center gap-2.5">
+      <span class="grid place-items-center w-8 h-8 rounded-md bg-[#E11D48] text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4.5 h-4.5" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </span>
+      <span class="font-bold tracking-tight">Ankit Singh</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-1 text-sm font-medium text-zinc-600">
+      <a href="#about" class="px-3 py-2 rounded-md hover:bg-zinc-100 hover:text-zinc-900 transition-colors">About</a>
+      <a href="#work" class="px-3 py-2 rounded-md hover:bg-zinc-100 hover:text-zinc-900 transition-colors">Work</a>
+      <a href="#gallery" class="px-3 py-2 rounded-md hover:bg-zinc-100 hover:text-zinc-900 transition-colors">Gallery</a>
+      <a href="#contact" class="px-3 py-2 rounded-md hover:bg-zinc-100 hover:text-zinc-900 transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden sm:inline-flex items-center bg-[#E11D48] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#BE123C] transition-colors">Contact Us</a>
+      <button id="menuBtn" class="md:hidden grid place-items-center w-10 h-10 rounded-md border border-zinc-200 hover:bg-zinc-50 transition-colors cursor-pointer" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="iconOpen" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-zinc-200 bg-white">
+    <div class="container-x py-3 flex flex-col text-sm font-medium text-zinc-700">
+      <a href="#about" class="py-3 border-b border-zinc-100 hover:text-zinc-900">About</a>
+      <a href="#work" class="py-3 border-b border-zinc-100 hover:text-zinc-900">Work</a>
+      <a href="#gallery" class="py-3 border-b border-zinc-100 hover:text-zinc-900">Gallery</a>
+      <a href="#contact" class="py-3 border-b border-zinc-100 hover:text-zinc-900">Contact</a>
+      <a href="#contact" class="mt-4 inline-flex justify-center bg-[#E11D48] text-white font-semibold px-4 py-2.5 rounded-md">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="bg-white">
+    <div class="container-x grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-16 sm:py-24">
+      <div>
+        <p class="text-sm font-semibold text-[#E11D48]">Singer &middot; Content Creator &middot; Delhi, India</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">Ankit Singh</h1>
+        <p class="mt-5 text-lg text-zinc-600 leading-8 max-w-xl">I record song covers and make comedy reels. Everything goes up across three Instagram accounts, and this page keeps the work in one place.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-[#E11D48] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#BE123C] transition-colors">
+            Contact Us
+          </a>
+          <a href="#work" class="inline-flex items-center gap-2 border border-zinc-300 text-zinc-800 font-semibold px-6 py-3 rounded-md hover:border-zinc-500 hover:bg-zinc-50 transition-colors">
+            View Work
+          </a>
+        </div>
+
+        <div class="mt-10 inline-flex items-center gap-3 text-sm text-zinc-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#E11D48]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"/></svg>
+          Open for paid collaborations and performances.
+        </div>
+      </div>
+
+      <div class="lg:justify-self-end w-full max-w-md">
+        <div class="border border-zinc-200 rounded-xl p-6">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-semibold text-zinc-900">Instagram followers</p>
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-500">
+              <span id="liveDot" class="live-dot"></span> Live
+            </span>
+          </div>
+          <p class="mt-3">
+            <span class="text-5xl font-bold tracking-tight tabular-nums" id="fanCount">6,605</span>
+          </p>
+          <p class="mt-1 text-sm text-zinc-500" id="fanHandle">@ankiisinghh</p>
+          <div class="mt-4 pt-4 border-t border-zinc-100 flex items-center justify-between">
+            <p class="text-xs text-zinc-400" id="fanSync">Checking…</p>
+            <button id="fanRefresh" class="inline-flex items-center gap-1.5 text-xs font-medium text-[#E11D48] hover:text-[#BE123C] transition-colors cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12a9 9 0 11-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+              Refresh
+            </button>
+          </div>
+          <p class="mt-3 text-[11px] text-zinc-400 leading-4">Updates automatically from Instagram every few minutes. If the count does not load, the last synced number stays on screen.</p>
+        </div>
+
+        <div class="mt-6 border border-zinc-200 rounded-xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1200&auto=format&fit=crop" alt="Microphone in front of warm performance lights" class="w-full h-56 object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-zinc-200 bg-zinc-50">
+    <div class="container-x grid grid-cols-1 sm:grid-cols-3 gap-px py-2">
+      <div class="py-6 sm:py-8 pr-4">
+        <p class="text-3xl sm:text-4xl font-bold tracking-tight tabular-nums"><span class="js-fan-count">6,605</span>+</p>
+        <p class="mt-1 text-sm text-zinc-500">Followers on <span class="font-medium text-zinc-700">@ankiisinghh</span></p>
+      </div>
+      <div class="py-6 sm:py-8 border-t sm:border-t-0 sm:border-l border-zinc-200 sm:pl-10">
+        <p class="text-3xl sm:text-4xl font-bold tracking-tight">104</p>
+        <p class="mt-1 text-sm text-zinc-500">Posts published on the main account</p>
+      </div>
+      <div class="py-6 sm:py-8 border-t sm:border-t-0 sm:border-l border-zinc-200 sm:pl-10">
+        <p class="text-3xl sm:text-4xl font-bold tracking-tight">3</p>
+        <p class="mt-1 text-sm text-zinc-500">Accounts for music, comedy and personal</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 sm:py-28">
+    <div class="container-x grid lg:grid-cols-2 gap-12 lg:gap-20">
+      <div>
+        <p class="text-sm font-semibold text-[#E11D48]">About</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">I make music, and I make people laugh.</h2>
+      </div>
+      <div class="space-y-5 text-zinc-600 leading-8">
+        <p>I am Ankit Singh, a singer and content creator from Delhi. I started by posting song covers on my phone, and over time it grew into a small community of people who show up for the covers and stay for the comedy.</p>
+        <p>Today I run three accounts: one for comedy and daily content, one for song covers, and one for personal and lyrics reels. Each has a different audience, and all of it is public on Instagram.</p>
+        <p>For brands and event organisers, this page is the direct route to a conversation. The details below show what each account is for, with links to the actual profiles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="bg-zinc-50 border-y border-zinc-200 py-20 sm:py-28">
+    <div class="container-x">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-[#E11D48]">Work</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Where the content lives</h2>
+        <p class="mt-4 text-zinc-600 leading-7">Three public accounts, each with a different job. Follower and post counts are pulled from Instagram at the time this site was built.</p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-5">
+        <a href="https://www.instagram.com/ankiisinghh" target="_blank" rel="noopener" class="group bg-white border border-zinc-200 rounded-xl p-6 hover:border-zinc-400 hover:shadow-sm transition-all">
+          <div class="flex items-start justify-between">
+            <div class="w-10 h-10 rounded-md bg-zinc-900 text-white grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 8h2a2 2 0 012 2v2a2 2 0 01-2 2h-2M3 12h14M12 8l4 4-4 4"/></svg>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-zinc-300 group-hover:text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+          <h3 class="mt-5 font-semibold">@ankiisinghh</h3>
+          <p class="mt-1 text-sm text-zinc-500">Comedy reels and daily content. The main account for brand collaborations and promotions.</p>
+          <p class="mt-4 text-sm font-semibold tabular-nums">6,605 followers &middot; 104 posts</p>
+        </a>
+
+        <a href="https://www.instagram.com/akki.sings__" target="_blank" rel="noopener" class="group bg-white border border-zinc-200 rounded-xl p-6 hover:border-zinc-400 hover:shadow-sm transition-all">
+          <div class="flex items-start justify-between">
+            <div class="w-10 h-10 rounded-md bg-zinc-900 text-white grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2M12 19v3"/></svg>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-zinc-300 group-hover:text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+          <h3 class="mt-5 font-semibold">@akki.sings__</h3>
+          <p class="mt-1 text-sm text-zinc-500">Song covers and original recordings. The music account, updated when a new cover is ready.</p>
+          <p class="mt-4 text-sm font-semibold tabular-nums">67 followers &middot; 7 posts</p>
+        </a>
+
+        <a href="https://www.instagram.com/unfav..akki__" target="_blank" rel="noopener" class="group bg-white border border-zinc-200 rounded-xl p-6 hover:border-zinc-400 hover:shadow-sm transition-all">
+          <div class="flex items-start justify-between">
+            <div class="w-10 h-10 rounded-md bg-zinc-900 text-white grid place-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-zinc-300 group-hover:text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </div>
+          <h3 class="mt-5 font-semibold">@unfav..akki__</h3>
+          <p class="mt-1 text-sm text-zinc-500">Personal account with lyrics reels and behind-the-scenes posts. The unfiltered side of the work.</p>
+          <p class="mt-4 text-sm font-semibold tabular-nums">Personal &middot; lyrics reels</p>
+        </a>
+      </div>
+
+      <p class="mt-8 text-sm text-zinc-500">All three profiles are public. Watch the latest reel directly on Instagram.</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-20 sm:py-28">
+    <div class="container-x">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold text-[#E11D48]">Gallery</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">From the feed and the studio</h2>
+        <p class="mt-4 text-zinc-600 leading-7">A selection of performance and behind-the-scenes moments. Click any image to view it larger.</p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4" id="galleryGrid">
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Live recording" data-caption="Recording a cover on stage lighting.">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=900&auto=format&fit=crop" alt="Microphone in front of warm performance lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Rehearsal" data-caption="Running through a verse before recording.">
+          <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=900&auto=format&fit=crop" alt="Hands holding a microphone during a rehearsal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Setup" data-caption="The recording setup used for covers.">
+          <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=900&auto=format&fit=crop" alt="Audio mixing desk in a recording setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Backstage" data-caption="Before a live slot.">
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?q=80&w=900&auto=format&fit=crop" alt="Stage lights during a performance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Writing" data-caption="Notes and references for the next cover.">
+          <img src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?q=80&w=900&auto=format&fit=crop" alt="Headphones and a notebook on a desk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Live slot" data-caption="Playing to a live audience.">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=900&auto=format&fit=crop" alt="Event setup with turntables and speakers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Close-up" data-caption="Microphone close-up during a recording.">
+          <img src="https://images.unsplash.com/photo-1520520731457-9283dd14aa66?q=80&w=900&auto=format&fit=crop" alt="Microphone close-up in warm light" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+        <button class="gallery-item group relative aspect-square rounded-lg overflow-hidden cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#E11D48]" data-title="Audience" data-caption="The people who make it worth posting.">
+          <img src="https://images.unsplash.com/photo-1470019693664-1d202d2c0907?q=80&w=900&auto=format&fit=crop" alt="Crowd holding up phone lights at a concert" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+        </button>
+      </div>
+    </div>
+
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/85 p-6 items-center justify-center" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button id="lightboxClose" class="absolute top-4 right-4 grid place-items-center w-11 h-11 rounded-md bg-white/10 text-white hover:bg-white/25 transition-colors cursor-pointer" aria-label="Close image viewer">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <figure class="max-w-3xl w-full text-center">
+        <img id="lightboxImg" src="" alt="" class="w-full max-h-[72vh] object-contain rounded-lg" />
+        <figcaption class="mt-4">
+          <p id="lightboxTitle" class="font-semibold text-white"></p>
+          <p id="lightboxCaption" class="mt-1 text-sm text-zinc-400"></p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-zinc-50 border-t border-zinc-200 py-20 sm:py-28">
+    <div class="container-x grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <div>
+        <p class="text-sm font-semibold text-[#E11D48]">Contact</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">Work with me</h2>
+        <p class="mt-4 text-zinc-600 leading-8 max-w-xl">Paid collaborations, promotions, and performance bookings. Send the details through the form or reach an account directly — the email address is monitored for collaboration requests.</p>
+
+        <div class="mt-8 space-y-4">
+          <a href="mailto:ankitcontact.11@gmail.com" class="flex items-start gap-4 border border-zinc-200 bg-white rounded-lg p-4 hover:border-zinc-400 transition-colors">
+            <span class="grid place-items-center w-10 h-10 rounded-md bg-zinc-900 text-white shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 5L2 7"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Collaborations &amp; promotions</span>
+              <span class="block text-sm text-zinc-500 mt-0.5">ankitcontact.11@gmail.com</span>
+            </span>
+          </a>
+          <a href="https://www.instagram.com/ankiisinghh" target="_blank" rel="noopener" class="flex items-start gap-4 border border-zinc-200 bg-white rounded-lg p-4 hover:border-zinc-400 transition-colors">
+            <span class="grid place-items-center w-10 h-10 rounded-md bg-zinc-900 text-white shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Comedy and content</span>
+              <span class="block text-sm text-zinc-500 mt-0.5">@ankiisinghh</span>
+            </span>
+          </a>
+          <a href="https://www.instagram.com/akki.sings__" target="_blank" rel="noopener" class="flex items-start gap-4 border border-zinc-200 bg-white rounded-lg p-4 hover:border-zinc-400 transition-colors">
+            <span class="grid place-items-center w-10 h-10 rounded-md bg-zinc-900 text-white shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Music and performance</span>
+              <span class="block text-sm text-zinc-500 mt-0.5">@akki.sings__</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <form id="bookingForm" action="mailto:ankitcontact.11@gmail.com" method="post" enctype="text/plain" class="border border-zinc-200 bg-white rounded-xl p-6 sm:p-8">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-zinc-700 mb-1.5">Name</label>
+              <input id="name" name="Name" type="text" required placeholder="Your name" class="w-full rounded-md border border-zinc-300 bg-white px-3.5 py-2.5 text-sm" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-zinc-700 mb-1.5">Email</label>
+              <input id="email" name="Email" type="email" required placeholder="you@example.com" class="w-full rounded-md border border-zinc-300 bg-white px-3.5 py-2.5 text-sm" />
+            </div>
+          </div>
+          <div class="mt-5">
+            <label for="type" class="block text-sm font-medium text-zinc-700 mb-1.5">Type of enquiry</label>
+            <select id="type" name="EnquiryType" class="w-full rounded-md border border-zinc-300 bg-white px-3.5 py-2.5 text-sm cursor-pointer">
+              <option>Paid collaboration / promotion</option>
+              <option>Performance / gig booking</option>
+              <option>Cover song request</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="mt-5">
+            <label for="message" class="block text-sm font-medium text-zinc-700 mb-1.5">Message</label>
+            <textarea id="message" name="Message" rows="5" required placeholder="Tell me what you have in mind." class="w-full rounded-md border border-zinc-300 bg-white px-3.5 py-2.5 text-sm resize-y"></textarea>
+          </div>
+          <button type="submit" class="mt-6 w-full bg-[#E11D48] text-white font-semibold px-6 py-3 rounded-md hover:bg-[#BE123C] transition-colors cursor-pointer">
+            Contact Us
+          </button>
+          <p class="mt-3 text-xs text-zinc-400 leading-4">Submitting opens your email app with the details pre-filled. No data is stored on this site.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-zinc-950 text-zinc-400">
+  <div class="container-x py-12">
+    <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+      <div>
+        <p class="font-bold text-white text-lg">Ankit Singh</p>
+        <p class="mt-2 text-sm max-w-sm leading-6">Singer and content creator based in Delhi. Song covers, comedy reels, and public work across three Instagram accounts.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-10 text-sm">
+        <div>
+          <p class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">Accounts</p>
+          <ul class="space-y-2.5">
+            <li><a href="https://www.instagram.com/ankiisinghh" target="_blank" rel="noopener" class="hover:text-white transition-colors">@ankiisinghh</a></li>
+            <li><a href="https://www.instagram.com/akki.sings__" target="_blank" rel="noopener" class="hover:text-white transition-colors">@akki.sings__</a></li>
+            <li><a href="https://www.instagram.com/unfav..akki__" target="_blank" rel="noopener" class="hover:text-white transition-colors">@unfav..akki__</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">Contact</p>
+          <ul class="space-y-2.5">
+            <li><a href="mailto:ankitcontact.11@gmail.com" class="hover:text-white transition-colors">Email</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Bookings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <p>&copy; <span id="year"></span> Ankit Singh. All rights reserved.</p>
+      <p>Follower count updated from Instagram.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var FAN_CONFIG = {
+    handle: "ankiisinghh",
+    fallback: 6605,
+    refreshMinutes: 10
+  };
+
+  var countEls = Array.prototype.slice.call(document.querySelectorAll(".js-fan-count"));
+  var fanCountEl = document.getElementById("fanCount");
+  var fanHandleEl = document.getElementById("fanHandle");
+  var fanSyncEl = document.getElementById("fanSync");
+  var liveDotEl = document.getElementById("liveDot");
+  var refreshBtn = document.getElementById("fanRefresh");
+
+  var current = readCache() || FAN_CONFIG.fallback;
+  render(current);
+
+  function readCache() {
+    try {
+      var v = parseInt(localStorage.getItem("akki_fan_count"), 10);
+      return v > 0 ? v : null;
+    } catch (e) { return null; }
+  }
+  function writeCache(n, ts) {
+    try {
+      localStorage.setItem("akki_fan_count", String(n));
+      localStorage.setItem("akki_fan_ts", String(ts));
+    } catch (e) {}
+  }
+  function cacheTime() {
+    try { return parseInt(localStorage.getItem("akki_fan_ts"), 10) || 0; } catch (e) { return 0; }
+  }
+
+  function render(n) {
+    countEls.forEach(function (el) { el.textContent = n.toLocaleString("en-IN"); });
+  }
+  function animate(from, to) {
+    var start = performance.now();
+    var dur = 800;
+    function step(t) {
+      var p = Math.min(1, (t - start) / dur);
+      p = 1 - Math.pow(1 - p, 3);
+      render(Math.round(from + (to - from) * p));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function setStatus(state, mins) {
+    if (state === "live") {
+      liveDotEl.className = "live-dot on";
+      fanSyncEl.textContent = "Synced from Instagram just now.";
+    } else if (state === "cached") {
+      liveDotEl.className = "live-dot stale";
+      if (mins <= 1) fanSyncEl.textContent = "Last synced just now. Will try again shortly.";
+      else fanSyncEl.textContent = "Last synced " + mins + " min ago.";
+    } else {
+      liveDotEl.className = "live-dot off";
+      fanSyncEl.textContent = "Could not reach Instagram. Showing last known count.";
+    }
+  }
+
+  function countFromHtml(html) {
+    var m = html.match(/"edge_followed_by":\{"count":(\d+)/);
+    if (m) return parseInt(m[1], 10);
+    m = html.match(/"followers":\s*(\d+)/);
+    if (m) return parseInt(m[1], 10);
+    return null;
+  }
+  function countFromJson(data) {
+    try { return parseInt(data.data.user.edge_followed_by.count, 10); } catch (e) { return null; }
+  }
+  function timeout(p, ms) {
+    return Promise.race([
+      p,
+      new Promise(function (_, rej) { setTimeout(function () { rej(new Error("timeout")); }, ms); })
+    ]);
+  }
+
+  var attempts = [
+    function () {
+      return fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://www.instagram.com/" + FAN_CONFIG.handle + "/"))
+        .then(function (r) { return r.text(); })
+        .then(countFromHtml);
+    },
+    function () {
+      return fetch("https://corsproxy.io/?url=" + encodeURIComponent("https://www.instagram.com/" + FAN_CONFIG.handle + "/"))
+        .then(function (r) { return r.text(); })
+        .then(countFromHtml);
+    },
+    function () {
+      return fetch("https://www.instagram.com/api/v1/users/web_profile_info/?username=" + FAN_CONFIG.handle, {
+        headers: { "x-ig-app-id": "936619743392459" }
+      })
+        .then(function (r) { return r.json(); })
+        .then(countFromJson);
+    }
+  ];
+
+  function sync() {
+    fanSyncEl.textContent = "Checking Instagram…";
+    var done = false;
+    attempts.reduce(function (chain, attempt, i) {
+      return chain.then(function (result) {
+        if (done || (result && result > 0)) return result;
+        return timeout(attempt(), 8000).then(function (count) {
+          if (count && count > 0) {
+            done = true;
+            animate(current, count);
+            current = count;
+            writeCache(count, Date.now());
+            setStatus("live");
+          }
+          return count;
+        }).catch(function () { return null; });
+      });
+    }, Promise.resolve(null)).then(function () {
+      if (!done) {
+        var t = cacheTime();
+        var mins = t ? Math.round((Date.now() - t) / 60000) : null;
+        setStatus("cached", mins);
+      }
+    });
+  }
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", function () { sync(); });
+  }
+  if (fanCountEl && fanHandleEl) {
+    fanHandleEl.textContent = "@" + FAN_CONFIG.handle;
+  }
+
+  sync();
+  setInterval(sync, FAN_CONFIG.refreshMinutes * 60 * 1000);
+
+  var menuBtn = document.getElementById("menuBtn");
+  var mobileMenu = document.getElementById("mobileMenu");
+  var iconOpen = document.getElementById("iconOpen");
+  var iconClose = document.getElementById("iconClose");
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener("click", function () {
+      var open = mobileMenu.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", String(!open));
+      iconOpen.classList.toggle("hidden", !open);
+      iconClose.classList.toggle("hidden", open);
+    });
+    mobileMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+        iconOpen.classList.remove("hidden");
+        iconClose.classList.add("hidden");
+      });
+    });
+  }
+
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var lbTitle = document.getElementById("lightboxTitle");
+  var lbCaption = document.getElementById("lightboxCaption");
+  var lbClose = document.getElementById("lightboxClose");
+  function openLightbox(img, title, caption) {
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbTitle.textContent = title;
+    lbCaption.textContent = caption;
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+    document.body.style.overflow = "";
+  }
+  document.querySelectorAll(".gallery-item").forEach(function (item) {
+    item.addEventListener("click", function () {
+      var img = item.querySelector("img");
+      openLightbox(img, item.getAttribute("data-title"), item.getAttribute("data-caption"));
+    });
+  });
+  if (lbClose) lbClose.addEventListener("click", closeLightbox);
+  if (lightbox) lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLightbox(); });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
