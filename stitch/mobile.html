@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ankit Singh - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#1f1f22",
+                        "inverse-on-surface": "#303033",
+                        "amber-glow": "#FCD34D",
+                        "background": "#131316",
+                        "surface-bright": "#39393c",
+                        "surface": "#131316",
+                        "surface-container-high": "#2a2a2d",
+                        "on-primary": "#472a00",
+                        "primary-fixed": "#ffddb8",
+                        "tertiary": "#ffbbbe",
+                        "glass-stroke": "rgba(255, 255, 255, 0.1)",
+                        "tertiary-container": "#ff9198",
+                        "tertiary-fixed-dim": "#ffb3b6",
+                        "surface-tint": "#ffb95f",
+                        "on-tertiary-fixed": "#40000c",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#d8c3ad",
+                        "inverse-primary": "#855300",
+                        "surface-container-low": "#1b1b1e",
+                        "outline": "#a08e7a",
+                        "on-primary-fixed-variant": "#653e00",
+                        "on-surface": "#e4e1e6",
+                        "primary": "#ffc174",
+                        "on-secondary-fixed-variant": "#842500",
+                        "primary-fixed-dim": "#ffb95f",
+                        "secondary": "#ffb59e",
+                        "tertiary-fixed": "#ffdada",
+                        "on-primary-fixed": "#2a1700",
+                        "secondary-fixed-dim": "#ffb59e",
+                        "secondary-container": "#fb5b21",
+                        "on-secondary-fixed": "#3a0b00",
+                        "on-error": "#690005",
+                        "on-tertiary-container": "#8c0026",
+                        "surface-variant": "#353438",
+                        "obsidian-deep": "#09090B",
+                        "on-tertiary": "#68001a",
+                        "error": "#ffb4ab",
+                        "primary-container": "#f59e0b",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#920028",
+                        "secondary-fixed": "#ffdbd0",
+                        "surface-container-lowest": "#0e0e11",
+                        "on-secondary": "#5e1800",
+                        "on-primary-container": "#613b00",
+                        "inverse-surface": "#e4e1e6",
+                        "surface-dim": "#131316",
+                        "on-secondary-container": "#521400",
+                        "surface-container-highest": "#353438",
+                        "on-background": "#e4e1e6",
+                        "text-muted": "#A1A1AA",
+                        "outline-variant": "#534434"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap-mobile": "64px",
+                        "section-gap-desktop": "120px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "stats-xl": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "headline-sm": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "stats-xl": ["40px", { "lineHeight": "1.0", "fontWeight": "800" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(252, 211, 77, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-obsidian-deep text-on-surface antialiased selection:bg-primary/30 min-h-screen flex flex-col">
+<!-- Nav -->
+<header class="bg-zinc-900/60 dark:bg-zinc-900/60 backdrop-blur-xl docked full-width top-0 sticky border-b border-glass-stroke shadow-sm z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-container-max mx-auto">
+<a class="font-display text-headline-sm tracking-tighter text-on-surface dark:text-on-surface" href="#">LYRIC</a>
+<nav class="hidden md:flex gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#portfolio">Portfolio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#gallery">Gallery</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#tour">Tour</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#stats">Stats</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary hover:text-amber-glow transition-colors">
+<span class="material-symbols-outlined">music_note</span>
+</button>
+<button class="bg-amber-glow text-black px-6 py-2 rounded font-label-md text-label-md glow-hover transition-shadow font-semibold scale-95 active:scale-90 transition-transform">Book Now</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex items-center justify-center overflow-hidden">
+<!-- STITCH_SHADER_START:ANIMATION_12 class="absolute inset-0 w-full h-full opacity-60" -->
+<div class="absolute inset-0 w-full h-full opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_12" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_12');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    float time = u_time * 0.2;
+    
+    // Create soft, moving blobs of "stage light"
+    vec3 color1 = vec3(0.05, 0.05, 0.07); // Deep Obsidian
+    vec3 color2 = vec3(0.96, 0.62, 0.04); // Warm Amber
+    vec3 color3 = vec3(0.2, 0.1, 0.05);   // Soft Bronze
+    
+    float n1 = sin(uv.x * 2.0 + time) * cos(uv.y * 3.0 - time);
+    float n2 = cos(uv.x * 4.0 - time * 0.5) * sin(uv.y * 2.5 + time);
+    
+    vec3 finalColor = mix(color1, color2 * 0.15, n1 * 0.5 + 0.5);
+    finalColor = mix(finalColor, color3 * 0.2, n2 * 0.5 + 0.5);
+    
+    // Add a vignette effect
+    float vignette = 1.0 - length(uv - 0.5) * 1.5;
+    finalColor *= clamp(vignette, 0.5, 1.0);
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_12 -->
+<div class="absolute inset-0 bg-gradient-to-t from-obsidian-deep via-obsidian-deep/50 to-transparent"></div>
+<div class="relative z-10 container mx-auto px-5 text-center mt-20">
+<span class="text-primary font-label-md text-label-md tracking-widest uppercase mb-4 block">Singer • Content Creator • Delhi, India</span>
+<h1 class="font-display text-display text-transparent bg-clip-text bg-gradient-to-r from-amber-glow to-primary mb-6">Ankit Singh</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    I record song covers and make comedy reels. Everything goes up across three Instagram accounts, and this page keeps the work in one place.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="bg-amber-glow text-black px-8 py-4 rounded font-label-md text-label-md glow-hover transition-all font-bold w-full sm:w-auto">Contact Us</button>
+<button class="glass-panel text-on-surface px-8 py-4 rounded font-label-md text-label-md hover:border-amber-glow transition-colors w-full sm:w-auto">View Work</button>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop container mx-auto px-5" id="stats">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="glass-panel p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-tertiary">Live</span>
+</div>
+<p class="font-stats-xl text-stats-xl text-amber-glow mb-2">7,277+</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Followers across 3 accounts</p>
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/10 rounded-tl-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+</div>
+<div class="glass-panel p-8 rounded-xl relative overflow-hidden group">
+<p class="font-stats-xl text-stats-xl text-on-surface mb-2">123</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Posts published on main</p>
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 rounded-tl-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
+</div>
+<div class="glass-panel p-8 rounded-xl relative overflow-hidden group">
+<p class="font-stats-xl text-stats-xl text-on-surface mb-2">3</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Active creative channels</p>
+<div class="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 rounded-tl-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop relative bg-surface-container-low/30">
+<div class="container mx-auto px-5 max-w-4xl">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-8">I make music, and I make people laugh.</h2>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-6">
+<p>I am Ankit Singh, a singer and content creator from Delhi. I started by posting song covers on my phone, and over time it grew into a small community of people who show up for the covers and stay for the comedy.</p>
+<p>Today I run three accounts: one for comedy and daily content, one for song covers, and one for personal and lyrics reels. Each has a different audience, and all of it is public on Instagram.</p>
+<p>For brands and event organisers, this page is the direct route to a conversation. The details below show what each account is for, with links to the actual profiles.</p>
+</div>
+</div>
+</section>
+<!-- Work Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop container mx-auto px-5 max-w-5xl" id="portfolio">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-12">Where the content lives</h2>
+<div class="space-y-6">
+<!-- Card 1 -->
+<a class="glass-panel p-6 md:p-8 rounded-xl flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-primary/50 transition-colors block relative overflow-hidden" href="#">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-glow to-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-black text-3xl">sentiment_satisfied</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-amber-glow transition-colors">@ankiisinghh</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Comedy reels and daily content. The main account for brand collaborations and promotions.</p>
+<div class="flex gap-4">
+<span class="font-label-md text-label-md text-primary bg-primary/10 px-3 py-1 rounded">6,501 Followers</span>
+<span class="font-label-md text-label-md text-on-surface-variant bg-white/5 px-3 py-1 rounded">123 Posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-amber-glow transition-colors hidden md:block">arrow_forward</span>
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/10 rounded-tl-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+</a>
+<!-- Card 2 -->
+<a class="glass-panel p-6 md:p-8 rounded-xl flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-primary/50 transition-colors block relative overflow-hidden" href="#">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-tertiary to-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-black text-3xl">mic</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-secondary transition-colors">@akki.sings__</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Song covers and original recordings. The music account, updated when a new cover is ready.</p>
+<div class="flex gap-4">
+<span class="font-label-md text-label-md text-secondary bg-secondary/10 px-3 py-1 rounded">77 Followers</span>
+<span class="font-label-md text-label-md text-on-surface-variant bg-white/5 px-3 py-1 rounded">4 Posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary transition-colors hidden md:block">arrow_forward</span>
+<div class="absolute bottom-0 right-0 w-64 h-64 bg-secondary/10 rounded-tl-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+</a>
+<!-- Card 3 -->
+<a class="glass-panel p-6 md:p-8 rounded-xl flex flex-col md:flex-row gap-6 items-start md:items-center group hover:border-primary/50 transition-colors block relative overflow-hidden" href="#">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-zinc-500 to-zinc-700 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-white text-3xl">visibility_off</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2 group-hover:text-zinc-300 transition-colors">@_unfav._.akki__</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Personal account with lyrics reels and behind-the-scenes posts. The unfiltered side of the work.</p>
+<div class="flex gap-4">
+<span class="font-label-md text-label-md text-zinc-300 bg-zinc-500/10 px-3 py-1 rounded">699 Followers</span>
+<span class="font-label-md text-label-md text-on-surface-variant bg-white/5 px-3 py-1 rounded">3 Posts</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-zinc-300 transition-colors hidden md:block">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Gallery Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop container mx-auto px-5" id="gallery">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-4">From the feed and the studio</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A selection of performance and behind-the-scenes moments.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="glass-panel rounded-xl overflow-hidden aspect-video group cursor-pointer">
+<img alt="Live performance with dramatic amber stage lighting, silhouetted crowd, high energy atmosphere, cinematic composition, dark and vibrant contrast." class="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtsnNqd7vu0hloAAtFZsbwUI4E-10bJPxGRZuWfLlR4n1ZgdbBedyV57g9Lbc25bSWchLriac41G1i_Ji8ZU9ZlE_wWOm47iZo1prXYf_ELANGY1Zjh9v68m3ekO00WYN16KjcUc2UO_DdyLyrjE_GTgZGvkAUAS5QfG7NjwoWMoazfMcztJsM1R4f_QEpmJX80aGm0ZBWLD3cA2-uK-h0gfbDyqhQ8BZG0J79mQo0kD60F2gYs1r3"/>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden aspect-video group cursor-pointer">
+<img alt="Studio recording session, close up on a professional microphone, moody low light setting, warm glowing accents in the background, sleek equipment." class="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkTZsiyqg6bChm7aiKZ941_6FlkUhZt8HNGRYLpehyIfyvk9lh49Zuf9bptzaLM3vfCfw3CVDCaDV8P4YTopDSG7VtmHemuAuI1_ONJuOKPkcMiOf-CgNZmOi25kDwqFJ7LRtXzveqIfPltEQWbEQXPwIpRri1GJnacwdS32mt_3eEiPoEP2N3Fl-dpvBLwXyQJATu57y5pwsa3I40kRYQUdQJgOE59VgR47z3wx04XI8ZWYMzEJI4"/>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden aspect-square md:aspect-video group cursor-pointer md:col-span-2">
+<img alt="Artist performing on stage with acoustic guitar, atmospheric fog, spotlights piercing through darkness, emotional expression, high quality concert photography." class="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqwrJK1aQJSKShEgErFnIduvzrR6PqRcg678fIvzTimXMltIf2z6AzIiGNx_IWaUpBx4TvqmyicxBzBuIGWrrFK6Bg9xHaGcEy5c1Z6SRP7mr52PtNYsx1Sb-cfL00KA-eHnJe_l-b_RGNYjzbtK6XFd9txseGb2B-ph42aQMEiZK0DA0RrGugOJJcerVWdZ_qL9z6EI86BBorozj0hQsB3mwxHHca6q0jR0I1nRpDBDWV6uPR-ss1"/>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low/50 relative border-t border-glass-stroke" id="tour">
+<div class="container mx-auto px-5 max-w-3xl">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-on-surface mb-4">Work with me</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Paid collaborations, promotions, and performance bookings.</p>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Name</label>
+<input class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="Your name" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Email</label>
+<input class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="your@email.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Type of enquiry</label>
+<select class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none appearance-none">
+<option>Paid collaboration / promotion</option>
+<option>Performance / gig booking</option>
+<option>Cover song request</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface-variant block mb-2">Message</label>
+<textarea class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="Tell me about your project..." rows="4"></textarea>
+</div>
+<button class="w-full bg-amber-glow text-black px-8 py-4 rounded-lg font-label-md text-label-md glow-hover transition-all font-bold mt-4" type="button">Send Message</button>
+<p class="text-center font-body-md text-body-md text-text-muted mt-4">Submitting opens your email app with the details pre-filled. No data is stored on this site.</p>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-obsidian-deep dark:bg-obsidian-deep border-t border-glass-stroke full-width bottom-0 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 max-w-container-max mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-display text-headline-sm text-on-surface">LYRIC</span>
+<p class="font-body-md text-body-md text-text-muted">© 2024 LYRIC CREATIVE. ALL RIGHTS RESERVED.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Press Kit</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Terms</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Contact</a>
+</nav>
+</div>
+</footer>
+</body></html>

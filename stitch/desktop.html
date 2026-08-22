@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ankit Singh - Singer &amp; Content Creator</title>
-<meta name="description" content="Ankit Singh — singer and content creator from Delhi. Song covers, comedy reels and live performances across three Instagram accounts."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Sora:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -36,6 +36,8 @@
                         "outline": "#a08e7a",
                         "on-primary-fixed-variant": "#653e00",
                         "on-surface": "#e4e1e6",
+                        "primary": "#ffc174",
+                        "on-secondary-fixed-variant": "#842500",
                         "primary-fixed-dim": "#ffb95f",
                         "secondary": "#ffb59e",
                         "tertiary-fixed": "#ffdada",
@@ -104,7 +106,6 @@
         }
     </script>
 <style>
-        html { scroll-behavior: smooth; }
         .glass-panel {
             background-color: rgba(24, 24, 27, 0.6);
             backdrop-filter: blur(12px);
@@ -116,10 +117,6 @@
         }
         .text-glow {
             text-shadow: 0 0 10px rgba(252, 211, 77, 0.3);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -150,6 +147,7 @@
   const canvas = document.getElementById('shader-canvas-ANIMATION_12');
 
   // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
   function syncSize() {
     const w = canvas.clientWidth  || 1280;
     const h = canvas.clientHeight || 720;
@@ -179,17 +177,19 @@ uniform vec2 u_resolution;
 void main() {
     vec2 uv = v_texCoord;
     float time = u_time * 0.2;
-
-    vec3 color1 = vec3(0.05, 0.05, 0.07);
-    vec3 color2 = vec3(0.96, 0.62, 0.04);
-    vec3 color3 = vec3(0.2, 0.1, 0.05);
-
+    
+    // Create soft, moving blobs of "stage light"
+    vec3 color1 = vec3(0.05, 0.05, 0.07); // Deep Obsidian
+    vec3 color2 = vec3(0.96, 0.62, 0.04); // Warm Amber
+    vec3 color3 = vec3(0.2, 0.1, 0.05);   // Soft Bronze
+    
     float n1 = sin(uv.x * 2.0 + time) * cos(uv.y * 3.0 - time);
     float n2 = cos(uv.x * 4.0 - time * 0.5) * sin(uv.y * 2.5 + time);
-
+    
     vec3 finalColor = mix(color1, color2 * 0.15, n1 * 0.5 + 0.5);
     finalColor = mix(finalColor, color3 * 0.2, n2 * 0.5 + 0.5);
-
+    
+    // Add a vignette effect
     float vignette = 1.0 - length(uv - 0.5) * 1.5;
     finalColor *= clamp(vignette, 0.5, 1.0);
 
@@ -216,6 +216,8 @@ void main() {
   const uRes = gl.getUniformLocation(prog, 'u_resolution');
   const uMouse = gl.getUniformLocation(prog, 'u_mouse');
 
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
   let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
   window.addEventListener('mousemove', (event) => {
     const rect = canvas.getBoundingClientRect();
@@ -260,20 +262,20 @@ void main() {
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">The Numbers</h2>
 <p class="font-body-md text-text-muted">Live stats across all platforms</p>
 </div>
-<div id="livePill" class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full">
-<span id="liveDot" class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
-<span id="liveText" class="font-label-md text-label-md text-tertiary">Syncing…</span>
+<div class="flex items-center gap-2 glass-panel px-4 py-2 rounded-full">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-tertiary">Live Updates</span>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="glass-panel p-6 rounded-lg glow-hover transition-all duration-300">
 <p class="font-label-md text-label-md text-primary mb-4 uppercase">Total Followers</p>
-<p class="font-stats-xl text-stats-xl text-on-surface mb-2"><span class="js-fan-count">7,277</span>+</p>
+<p class="font-stats-xl text-stats-xl text-on-surface mb-2">7,277+</p>
 <p class="font-body-md text-text-muted">Across 3 Instagram accounts</p>
 </div>
 <div class="glass-panel p-6 rounded-lg glow-hover transition-all duration-300">
 <p class="font-label-md text-label-md text-primary mb-4 uppercase">Total Posts</p>
-<p class="font-stats-xl text-stats-xl text-on-surface mb-2" data-posts="ankiisinghh">123</p>
+<p class="font-stats-xl text-stats-xl text-on-surface mb-2">123</p>
 <p class="font-body-md text-text-muted">Published on main account</p>
 </div>
 <div class="glass-panel p-6 rounded-lg glow-hover transition-all duration-300">
@@ -281,17 +283,6 @@ void main() {
 <p class="font-stats-xl text-stats-xl text-on-surface mb-2">3</p>
 <p class="font-body-md text-text-muted">Music, comedy and personal</p>
 </div>
-</div>
-</div>
-</section>
-<!-- About Section -->
-<section class="py-section-gap-mobile md:py-section-gap-desktop relative bg-surface-container-low/30 border-y border-glass-stroke" id="about">
-<div class="max-w-container-max mx-auto px-6 md:px-8 max-w-4xl">
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-8">I make music, and I make people laugh.</h2>
-<div class="font-body-lg text-body-lg text-on-surface-variant space-y-6">
-<p>I am Ankit Singh, a singer and content creator from Delhi. I started by posting song covers on my phone, and over time it grew into a small community of people who show up for the covers and stay for the comedy.</p>
-<p>Today I run three accounts: one for comedy and daily content, one for song covers, and one for personal and lyrics reels. Each has a different audience, and all of it is public on Instagram.</p>
-<p>For brands and event organisers, this page is the direct route to a conversation. The details below show what each account is for, with links to the actual profiles.</p>
 </div>
 </div>
 </section>
@@ -303,58 +294,58 @@ void main() {
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Main Account -->
-<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/ankiisinghh" target="_blank" rel="noopener">
+<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/ankiisinghh" target="_blank">
 <div class="absolute bottom-0 right-0 w-32 h-32 bg-primary opacity-10 blur-2xl rounded-full"></div>
 <div class="flex items-center gap-4 mb-6 relative z-10">
 <span class="material-symbols-outlined text-4xl text-primary">theater_comedy</span>
 <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-amber-glow transition-colors">@ankiisinghh</h3>
 </div>
 <p class="font-body-md text-on-surface-variant mb-8 relative z-10">Comedy reels and daily content. The main account for brand collaborations and promotions.</p>
-<div class="flex gap-8 border-t border-glass-stroke pt-6 mt-auto relative z-10">
+<div class="flex gap-4 border-t border-glass-stroke pt-6 mt-auto relative z-10">
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-fans="ankiisinghh">6,501</p>
+<p class="font-stats-xl text-2xl text-on-surface">6,501</p>
 <p class="font-label-md text-label-md text-text-muted">Followers</p>
 </div>
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-posts="ankiisinghh">123</p>
+<p class="font-stats-xl text-2xl text-on-surface">123</p>
 <p class="font-label-md text-label-md text-text-muted">Posts</p>
 </div>
 </div>
 </a>
 <!-- Music Account -->
-<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/akki.sings__" target="_blank" rel="noopener">
+<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/akki.sings__" target="_blank">
 <div class="absolute bottom-0 right-0 w-32 h-32 bg-primary opacity-10 blur-2xl rounded-full"></div>
 <div class="flex items-center gap-4 mb-6 relative z-10">
 <span class="material-symbols-outlined text-4xl text-primary">mic</span>
 <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-amber-glow transition-colors">@akki.sings__</h3>
 </div>
 <p class="font-body-md text-on-surface-variant mb-8 relative z-10">Song covers and original recordings. The music account, updated when a new cover is ready.</p>
-<div class="flex gap-8 border-t border-glass-stroke pt-6 mt-auto relative z-10">
+<div class="flex gap-4 border-t border-glass-stroke pt-6 mt-auto relative z-10">
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-fans="akki.sings__">77</p>
+<p class="font-stats-xl text-2xl text-on-surface">77</p>
 <p class="font-label-md text-label-md text-text-muted">Followers</p>
 </div>
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-posts="akki.sings__">4</p>
+<p class="font-stats-xl text-2xl text-on-surface">4</p>
 <p class="font-label-md text-label-md text-text-muted">Posts</p>
 </div>
 </div>
 </a>
 <!-- Personal Account -->
-<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/_unfav._.akki__" target="_blank" rel="noopener">
+<a class="glass-panel p-8 rounded-xl block group hover:-translate-y-2 glow-hover transition-all duration-300 relative overflow-hidden" href="https://www.instagram.com/_unfav._.akki__" target="_blank">
 <div class="absolute bottom-0 right-0 w-32 h-32 bg-primary opacity-10 blur-2xl rounded-full"></div>
 <div class="flex items-center gap-4 mb-6 relative z-10">
 <span class="material-symbols-outlined text-4xl text-primary">person</span>
 <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-amber-glow transition-colors">@_unfav._.akki__</h3>
 </div>
 <p class="font-body-md text-on-surface-variant mb-8 relative z-10">Personal account with lyrics reels and behind-the-scenes posts. The unfiltered side of the work.</p>
-<div class="flex gap-8 border-t border-glass-stroke pt-6 mt-auto relative z-10">
+<div class="flex gap-4 border-t border-glass-stroke pt-6 mt-auto relative z-10">
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-fans="_unfav._.akki__">699</p>
+<p class="font-stats-xl text-2xl text-on-surface">699</p>
 <p class="font-label-md text-label-md text-text-muted">Followers</p>
 </div>
 <div>
-<p class="font-stats-xl text-2xl text-on-surface" data-posts="_unfav._.akki__">3</p>
+<p class="font-stats-xl text-2xl text-on-surface">3</p>
 <p class="font-label-md text-label-md text-text-muted">Posts</p>
 </div>
 </div>
@@ -369,66 +360,28 @@ void main() {
 </div>
 <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Studio performance" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1XyRDZqhNn5tZhr72HQwvuRI2dl4sLx5EMRaOE4vpN1bImSc6rBoiHzTySJjTXshXXYqSUqvDr_4NcOjvjiqUgKmfMlUQdd0AEi9O0OKv1S-bF8VyM6Q0qkpJt5VwYpfAMWTyjS-A2GZFN4oKiCB9F_gbAgxYC50MPjItMrAnG91f6amfbg66VrzZZq4dLtwj3Yy8hgf4LgcqAN6inx8-dN7OGitOx8bQncezUMlvVhsiWLzabFuj_Kaw"/>
+<img alt="Studio performance" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1XyRDZqhNn5tZhr72HQwvuRI2dl4sLx5EMRaOE4vpN1bImSc6rBoiHzTySJjTXshXXYqSUqvDr_4NcOjvjiqUgKmfMlUQdd0AEi9O0OKv1S-bF8VyM6Q0qkpJt5VwYpfAMWTyjS-A2GZFN4oKiCB9F_gbAgxYC50MPjItMrAnG91f6amfbg66VrzZZq4dLtwj3Yy8hgf4LgcqAN6inx8-dN7OGitOx8bQncezUMlvVhsiWLzabFuj_Kaw"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
 </div>
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Behind the scenes" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1VvPKb8EadRuCj_067N_S0Du_Bwbiv9tx_NBPm3a539PyyKL2TT2ZDHJiSEa1CzV2-HkbxNe3kmLH6DEyRjsP0p5tKOy07FZRtTToOmIJMDvhn0pAGMNiyRSAnoSLrfRmRYiAJido4Lt9IcppsaaKENeu-sHbpeyPJFGUfB2AqFQ48O2JEBkxFHb-nRaPK6TYmMFv58FdYddPbN2hIDWnGWhTgIv_YDMsB4YXNnmqa3rnUcMY7Soo9zW8E"/>
+<img alt="Behind the scenes" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1VvPKb8EadRuCj_067N_S0Du_Bwbiv9tx_NBPm3a539PyyKL2TT2ZDHJiSEa1CzV2-HkbxNe3kmLH6DEyRjsP0p5tKOy07FZRtTToOmIJMDvhn0pAGMNiyRSAnoSLrfRmRYiAJido4Lt9IcppsaaKENeu-sHbpeyPJFGUfB2AqFQ48O2JEBkxFHb-nRaPK6TYmMFv58FdYddPbN2hIDWnGWhTgIv_YDMsB4YXNnmqa3rnUcMY7Soo9zW8E"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
 </div>
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Live setup" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1WzochDbMbB-nrtJJGHbIzXUmoGOrn-kkBHiAwBsSvg2Yg2uJQZWRDeycS4N2MnQiFAiM96BzkPfTZgclD0e6Lz79uxH46emmXhqrXrmmZlHNz4-S06Gt4fkLYta5hviy3KhgB-hu1c2UquGogT2XHcG1SenvnRWYfMBzV1tVJ2L5nOdO7wH7HJCo0ffj0RUKxhPUdb974mW-T4OJf2OKi9V9kqfSFKKmQmTOItbuEmPRCcsXiyTMtl7Hg"/>
+<img alt="Live setup" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1WzochDbMbB-nrtJJGHbIzXUmoGOrn-kkBHiAwBsSvg2Yg2uJQZWRDeycS4N2MnQiFAiM96BzkPfTZgclD0e6Lz79uxH46emmXhqrXrmmZlHNz4-S06Gt4fkLYta5hviy3KhgB-hu1c2UquGogT2XHcG1SenvnRWYfMBzV1tVJ2L5nOdO7wH7HJCo0ffj0RUKxhPUdb974mW-T4OJf2OKi9V9kqfSFKKmQmTOItbuEmPRCcsXiyTMtl7Hg"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
 </div>
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Comedy reel still" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1VyHm2j-zMjMTrGNIHCsAD8Ub441PoLGnC3ZF2vF0sXOQTl4y0WWXArZb098i1qG-5hcc7xKXB0BkQd6vRXPxjRZXZJyNvl6duVkos_gOLRNZV3qA7u4nSA2RYxbnOMHl2TOvo04H-T1yZLos-Tt6lXlYjwYjP0nkIlsfTzRLHsrHMFasxew-939fyT_Ow8evdxq3U86r8lbh7kVF63KRwTN0_zXTnaP9Xmw1YKViOmYt8oHGyfxr6s7g"/>
+<img alt="Comedy reel still" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1VyHm2j-zMjMTrGNIHCsAD8Ub441PoLGnC3ZF2vF0sXOQTl4y0WWXArZb098i1qG-5hcc7xKXB0BkQd6vRXPxjRZXZJyNvl6duVkos_gOLRNZV3qA7u4nSA2RYxbnOMHl2TOvo04H-T1yZLos-Tt6lXlYjwYjP0nkIlsfTzRLHsrHMFasxew-939fyT_Ow8evdxq3U86r8lbh7kVF63KRwTN0_zXTnaP9Xmw1YKViOmYt8oHGyfxr6s7g"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
 </div>
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Music equipment" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1W8DPZhHUuT-EwBd7FfLF5Vpb7YXA0tYoRA6m9r0ZL8gQxyDMJ51oa0XCjoFUx3m0rBgaYftuQd0KnIZcVzr5iH5kmf-vWcxTKx3pysbD3VRyqUl1mZET4DWB_Pmo8hMzaI94c4K7_-tMcEilJi-RRXvc68G7cmu3551vOEzWZUJpX43n2mJrl1QbJ2mE-zxT7cdw_9_6oyba4QtPvjzromD6gq5avyWO8xViQyZ1SNw2lltjqVBohBtQ"/>
+<img alt="Music equipment" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1W8DPZhHUuT-EwBd7FfLF5Vpb7YXA0tYoRA6m9r0ZL8gQxyDMJ51oa0XCjoFUx3m0rBgaYftuQd0KnIZcVzr5iH5kmf-vWcxTKx3pysbD3VRyqUl1mZET4DWB_Pmo8hMzaI94c4K7_-tMcEilJi-RRXvc68G7cmu3551vOEzWZUJpX43n2mJrl1QbJ2mE-zxT7cdw_9_6oyba4QtPvjzromD6gq5avyWO8xViQyZ1SNw2lltjqVBohBtQ"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
 </div>
 <div class="relative group overflow-hidden rounded-lg break-inside-avoid">
-<img alt="Performance shot" loading="lazy" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1W2bKU2F3rjpLS27pyByO_G8ZMxnKj6FdvedhTHOvZ1a50FvvwmlFwc2Ko-MQUItcx28UUgI_4sbrfMhTDQFOXI3U_XG6z6GEkB8Cp_2xZrEIq-1Gqe2sKQNuP-eV20r5OqfsBw6fwWFCITX247UbQRwQH--isbLL96id7zhMPEqVwgLeI9PRl4QENzehx3j9BdkkFRxdiG6O9tJDWSU8e7ghk3AsgW7af11i2gxi_Dzex_XpAYNUKVTtY"/>
+<img alt="Performance shot" class="w-full object-cover transition-transform duration-700 group-hover:scale-[1.02] group-hover:brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1W2bKU2F3rjpLS27pyByO_G8ZMxnKj6FdvedhTHOvZ1a50FvvwmlFwc2Ko-MQUItcx28UUgI_4sbrfMhTDQFOXI3U_XG6z6GEkB8Cp_2xZrEIq-1Gqe2sKQNuP-eV20r5OqfsBw6fwWFCITX247UbQRwQH--isbLL96id7zhMPEqVwgLeI9PRl4QENzehx3j9BdkkFRxdiG6O9tJDWSU8e7ghk3AsgW7af11i2gxi_Dzex_XpAYNUKVTtY"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-glass-stroke rounded-lg pointer-events-none"></div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low/50 border-t border-glass-stroke" id="contact">
-<div class="max-w-container-max mx-auto px-6 md:px-8">
-<div class="max-w-3xl mx-auto">
-<div class="text-center mb-12">
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Work with me</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Paid collaborations, promotions, and performance bookings.</p>
-</div>
-<form class="space-y-6" id="contactForm">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="cfName">Name</label>
-<input class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="Your name" type="text" id="cfName" name="name"/>
-</div>
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="cfEmail">Email</label>
-<input class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="your@email.com" type="email" id="cfEmail" name="email"/>
-</div>
-</div>
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="cfType">Type of enquiry</label>
-<select class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none appearance-none" id="cfType" name="type">
-<option>Paid collaboration / promotion</option>
-<option>Performance / gig booking</option>
-<option>Cover song request</option>
-<option>Other</option>
-</select>
-</div>
-<div>
-<label class="font-label-md text-label-md text-on-surface-variant block mb-2" for="cfMsg">Message</label>
-<textarea class="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-4 py-3 text-on-surface focus:border-amber-glow focus:ring-1 focus:ring-amber-glow/50 transition-colors focus:outline-none placeholder-zinc-600" placeholder="Tell me about your project..." rows="4" id="cfMsg" name="message"></textarea>
-</div>
-<button class="w-full bg-amber-glow text-black px-8 py-4 rounded-lg font-label-md text-label-md glow-hover transition-all font-bold mt-4" type="submit">Send Message</button>
-<p class="text-center font-body-md text-body-md text-text-muted mt-4">Submitting opens your email app with the details pre-filled. No data is stored on this site.</p>
-</form>
 </div>
 </div>
 </section>
@@ -437,192 +390,14 @@ void main() {
 <div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 max-w-container-max mx-auto gap-8">
 <div class="text-center md:text-left">
 <span class="font-display text-headline-sm text-on-surface opacity-80 hover:opacity-100 transition-opacity">LYRIC</span>
-<p class="font-body-md text-text-muted mt-2">&copy; <span id="year">2026</span> Ankit Singh. All rights reserved.</p>
+<p class="font-body-md text-text-muted mt-2">© 2024 LYRIC CREATIVE. ALL RIGHTS RESERVED.</p>
 </div>
 <div class="flex flex-wrap justify-center gap-6">
-<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="https://www.instagram.com/ankiisinghh" target="_blank" rel="noopener">Instagram</a>
-<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="https://github.com/ankit-is-a-dev" target="_blank" rel="noopener">GitHub</a>
-<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="mailto:ankitcontact.11@gmail.com">Email</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Press Kit</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Privacy Policy</a>
+<a class="font-label-md text-label-md text-text-muted hover:text-amber-glow transition-all" href="#">Terms</a>
 <a class="font-label-md text-label-md text-primary hover:text-amber-glow transition-all" href="#contact">Contact</a>
 </div>
 </div>
 </footer>
-
-<script>
-(function () {
-  var FAN_CONFIG = {
-    handles: ["ankiisinghh", "akki.sings__", "_unfav._.akki__"],
-    fallback: 7277,
-    refreshMinutes: 10
-  };
-
-  var countEls = Array.prototype.slice.call(document.querySelectorAll(".js-fan-count"));
-  var liveDotEl = document.getElementById("liveDot");
-  var liveTextEl = document.getElementById("liveText");
-
-  var current = readCache() || FAN_CONFIG.fallback;
-  render(current);
-
-  function readCache() {
-    try {
-      var v = parseInt(localStorage.getItem("akki_fan_count"), 10);
-      return v > 0 ? v : null;
-    } catch (e) { return null; }
-  }
-  function writeCache(n, ts) {
-    try {
-      localStorage.setItem("akki_fan_count", String(n));
-      localStorage.setItem("akki_fan_ts", String(ts));
-    } catch (e) {}
-  }
-  function cacheTime() {
-    try { return parseInt(localStorage.getItem("akki_fan_ts"), 10) || 0; } catch (e) { return 0; }
-  }
-
-  function render(n) {
-    countEls.forEach(function (el) { el.textContent = n.toLocaleString("en-IN"); });
-  }
-  function animate(from, to) {
-    var start = performance.now();
-    var dur = 800;
-    function step(t) {
-      var p = Math.min(1, (t - start) / dur);
-      p = 1 - Math.pow(1 - p, 3);
-      render(Math.round(from + (to - from) * p));
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  function setStatus(state, mins) {
-    if (!liveDotEl || !liveTextEl) return;
-    if (state === "live") {
-      liveDotEl.className = "w-2 h-2 rounded-full bg-tertiary animate-pulse";
-      liveTextEl.textContent = "Live Updates";
-      liveTextEl.className = "font-label-md text-label-md text-tertiary";
-    } else if (state === "cached") {
-      liveDotEl.className = "w-2 h-2 rounded-full bg-zinc-500";
-      liveTextEl.textContent = mins != null && mins > 0 ? "Last synced " + mins + " min ago" : "Cached";
-      liveTextEl.className = "font-label-md text-label-md text-text-muted";
-    } else {
-      liveDotEl.className = "w-2 h-2 rounded-full bg-zinc-500 animate-pulse";
-      liveTextEl.textContent = "Syncing…";
-      liveTextEl.className = "font-label-md text-label-md text-text-muted";
-    }
-  }
-
-  function countFromHtml(html) {
-    var m = html.match(/"edge_followed_by":\{"count":(\d+)/);
-    if (m) return parseInt(m[1], 10);
-    m = html.match(/"followers":\s*(\d+)/);
-    if (m) return parseInt(m[1], 10);
-    return null;
-  }
-  function countFromJson(data) {
-    try { return parseInt(data.data.user.edge_followed_by.count, 10); } catch (e) { return null; }
-  }
-  function timeout(p, ms) {
-    return Promise.race([
-      p,
-      new Promise(function (_, rej) { setTimeout(function () { rej(new Error("timeout")); }, ms); })
-    ]);
-  }
-
-  function fetchHandleCount(handle) {
-    var attempts = [
-      function () {
-        return fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://www.instagram.com/" + handle + "/"))
-          .then(function (r) { return r.text(); })
-          .then(countFromHtml);
-      },
-      function () {
-        return fetch("https://corsproxy.io/?url=" + encodeURIComponent("https://www.instagram.com/" + handle + "/"))
-          .then(function (r) { return r.text(); })
-          .then(countFromHtml);
-      },
-      function () {
-        return fetch("https://www.instagram.com/api/v1/users/web_profile_info/?username=" + handle, {
-          headers: { "x-ig-app-id": "936619743392459" }
-        })
-          .then(function (r) { return r.json(); })
-          .then(countFromJson);
-      }
-    ];
-    return attempts.reduce(function (chain, attempt) {
-      return chain.then(function (result) {
-        if (result && result > 0) return result;
-        return timeout(attempt(), 8000).then(function (count) {
-          return (count && count > 0) ? count : null;
-        }).catch(function () { return null; });
-      });
-    }, Promise.resolve(null));
-  }
-
-  function updateCards(accounts) {
-    accounts.forEach(function (a) {
-      var f = document.querySelector('[data-fans="' + a.handle + '"]');
-      var p = document.querySelector('[data-posts="' + a.handle + '"]');
-      if (f && typeof a.followers === "number") f.textContent = a.followers.toLocaleString("en-IN");
-      if (p && typeof a.posts === "number") p.textContent = String(a.posts);
-    });
-  }
-
-  function sync() {
-    setStatus("syncing");
-    Promise.all(FAN_CONFIG.handles.map(fetchHandleCount)).then(function (counts) {
-      var total = counts.reduce(function (s, n) { return s + (n || 0); }, 0);
-      if (total > 0) {
-        animate(current, total);
-        current = total;
-        writeCache(total, Date.now());
-        setStatus("live");
-      } else {
-        var t = cacheTime();
-        var mins = t ? Math.round((Date.now() - t) / 60000) : null;
-        setStatus("cached", mins);
-      }
-    });
-  }
-
-  fetch("data/fans.json")
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (d) {
-      if (d && d.total && d.total > 0) {
-        current = d.total;
-        render(current);
-        writeCache(d.total, Date.now());
-        if (d.accounts) updateCards(d.accounts);
-        if (d.updated_at) {
-          var age = Math.round((Date.now() - new Date(d.updated_at).getTime()) / 3600000);
-          if (age >= 1 && liveTextEl) {
-            liveDotEl.className = "w-2 h-2 rounded-full bg-zinc-500";
-            liveTextEl.textContent = "Last synced " + (age >= 24 ? Math.round(age / 24) + "d" : age + "h") + " ago";
-            liveTextEl.className = "font-label-md text-label-md text-text-muted";
-          }
-        }
-      }
-    })
-    .catch(function () {});
-
-  sync();
-  setInterval(sync, FAN_CONFIG.refreshMinutes * 60 * 1000);
-
-  var yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-  var contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = document.getElementById("cfName").value || "";
-      var email = document.getElementById("cfEmail").value || "";
-      var type = document.getElementById("cfType").value || "";
-      var msg = document.getElementById("cfMsg").value || "";
-      var subject = encodeURIComponent("[Website] " + type + (name ? " — " + name : ""));
-      var body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nEnquiry: " + type + "\n\n" + msg);
-      window.location.href = "mailto:ankitcontact.11@gmail.com?subject=" + subject + "&body=" + body;
-    });
-  }
-})();
-</script>
 </body></html>
